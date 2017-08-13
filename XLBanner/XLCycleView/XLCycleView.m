@@ -41,8 +41,8 @@
 #pragma mark --- 布局UI
 -(void)initUI{
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = self.bounds.size;
     flowLayout.minimumLineSpacing = 0;
+    flowLayout.minimumInteritemSpacing = 0;
     _flowLayout = flowLayout;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     //UICollectionView
@@ -65,6 +65,13 @@
     [self addSubview:self.pageControl];
 }
 
+
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.collectionView.frame = self.bounds;
+    self.flowLayout.itemSize = self.frame.size;
+}
 
 #pragma mark 添加定时器
 -(void)addTimer{
@@ -110,9 +117,6 @@
 
 
 -(void)setTitleArray:(NSArray *)titleArray{
-    if (_titleArray.count <= 0) {
-        return;
-    }
     _titleArray = titleArray;
     _totalPage = _titleArray.count;
     [_collectionView reloadData];

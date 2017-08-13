@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yrh-WB-pQ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yrh-WB-pQ2">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -35,6 +34,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -44,22 +44,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ES-fg-Mk3" customClass="XLCycleView">
-                                <rect key="frame" x="0.0" y="104" width="320" height="120"/>
-                                <color key="backgroundColor" red="0.48402235243055558" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7ES-fg-Mk3" secondAttribute="height" multiplier="8:3" id="KlY-hZ-Fqo"/>
-                                </constraints>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SqI-tq-2ot">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="bh2-GE-DUd"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="XLBannerView" id="NHK-h6-auw"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CFYB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzC-5D-P9c">
                                 <rect key="frame" x="60" y="318" width="201" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,26 +51,18 @@
                                 <color key="textColor" red="1" green="0.22008266678583999" blue="0.14324478791300033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pfd-yw-hwR" customClass="XLCycleView">
-                                <rect key="frame" x="15" y="246" width="290" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pfd-yw-hwR" customClass="XLCycleView">
+                                <rect key="frame" x="16" y="280" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="C20-zg-N0F"/>
-                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ES-fg-Mk3" customClass="XLCycleView">
+                                <rect key="frame" x="0.0" y="377" width="320" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.48402235243055558" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="SqI-tq-2ot" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4fr-C6-Q6p"/>
-                            <constraint firstItem="7ES-fg-Mk3" firstAttribute="top" secondItem="SqI-tq-2ot" secondAttribute="bottom" constant="40" id="7o2-9p-zcS"/>
-                            <constraint firstAttribute="trailing" secondItem="7ES-fg-Mk3" secondAttribute="trailing" id="EgD-pI-o9I"/>
-                            <constraint firstItem="Pfd-yw-hwR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="OkK-rz-KaZ"/>
-                            <constraint firstItem="SqI-tq-2ot" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UWB-Ls-ZmD"/>
-                            <constraint firstAttribute="trailing" secondItem="SqI-tq-2ot" secondAttribute="trailing" id="XF4-sB-Fnk"/>
-                            <constraint firstItem="Pfd-yw-hwR" firstAttribute="top" secondItem="7ES-fg-Mk3" secondAttribute="bottom" constant="22" id="XHC-wE-yzw"/>
-                            <constraint firstItem="7ES-fg-Mk3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mjp-3x-vz3"/>
-                            <constraint firstAttribute="trailing" secondItem="Pfd-yw-hwR" secondAttribute="trailing" constant="15" id="psM-c5-d0R"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pIO-fl-gHt"/>
                     <connections>
@@ -95,7 +71,6 @@
                         <outlet property="textView" destination="Pfd-yw-hwR" id="oW5-nL-ifF"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-253" y="-302"/>
         </scene>
