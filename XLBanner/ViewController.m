@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _bannerView.timeInterval = 1;
     _bannerView.imageUrlArray = @[@"http://haitaoad.nosdn.127.net/ad.bid.material_958e94ff19d4425fbf8ff675d2d6f29e?param=640y248",@"http://p4.music.126.net/KBGimsi9Oyx10aZZM5_rkA==/18767563976515199.jpg?param=640y248",@"http://p4.music.126.net/DOUERTQqfwX40zHtGsCnWw==/18688399139301883.jpg?param=640y248",@"http://p3.music.126.net/jGi52eDVUxCnMaVy-_bqcQ==/18531168976543961.jpg?param=640y248",@"http://p3.music.126.net/7lvZQAdwUktLAdUSCvWjmA==/18653214767235643.jpg?param=640y248",@"http://p3.music.126.net/nZCNbtXbzn0NieGZniBw9w==/18964376556159465.jpg?param=640y248",@"http://haitaoad.nosdn.127.net/ad.bid.material_48b4f29d4793407ca16f0dd243ca4807?param=640y248",@"http://p4.music.126.net/w0gNUJQmI8vDTXDTsByOgA==/19041342370095071.jpg?param=640y248",@"http://p1.music.126.net/M3YaF1uVBhhX9yw1K3-kvQ==/18984167765277108.jpg?param=210y210"];
     _pageControl.currentPage = 0;
     self.pageControl.numberOfPages = _bannerView.imageUrlArray.count;
@@ -31,7 +32,7 @@
     
     
     
-    
+    _textView.timeInterval = 1;
     _textView.isText = YES;
     _textView.titleArray = @[@"这个是跑马灯的测试，嘿嘿",@"不知道写什么文字，索性就随意写点吧",@"好好学习天天向上",@"没有什么能够阻挡我对生活的向往！！！！",@"行走于键盘之上。。。。。"];
     _textView.delegate = self;

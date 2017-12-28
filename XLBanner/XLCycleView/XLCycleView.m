@@ -44,6 +44,7 @@
 }
 #pragma mark --- 布局UI
 -(void)initUI{
+    _timeInterval = 3.0;
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = self.bounds.size;
     flowLayout.minimumLineSpacing = 0;
@@ -64,7 +65,7 @@
 
 #pragma mark 添加定时器
 -(void)addTimer{
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
     _timer = timer;
     [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     
@@ -92,6 +93,11 @@
 -(void) removeTimer{
     [self.timer invalidate];
     self.timer = nil;
+}
+
+
+-(void)setTimeInterval:(NSTimeInterval)timeInterval{
+    _timeInterval = timeInterval;
 }
 
 -(void)setImageUrlArray:(NSArray *)imageUrlArray{
