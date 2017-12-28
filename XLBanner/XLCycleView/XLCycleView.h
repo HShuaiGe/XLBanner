@@ -23,10 +23,12 @@
 
 
 @interface XLCycleView : UIView
+@property (copy, nonatomic) void(^DidChangeCycleViewItem)(NSInteger index);
 @property (nonatomic, strong) NSArray *imageUrlArray; //轮播的图片数组
 @property (nonatomic, strong) NSArray *titleArray;    //文字数组
 @property (nonatomic, assign) BOOL isText;            //是否是文字轮播  YES：是  NO：不是
 @property (nonatomic, assign) id <XLCycleViewDelegate>delegate;
+
 @end
 
 

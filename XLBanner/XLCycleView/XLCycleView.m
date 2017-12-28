@@ -13,7 +13,6 @@
 @interface XLCycleView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView   *collectionView;       //轮播 UICollectionView
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
-@property (nonatomic, strong) UIPageControl  *pageControl;              //轮播图上的PageControl
 @property (nonatomic, strong) UIButton       *imageViewButton;          //加载轮播的图片
 @property (nonatomic, assign) NSInteger      totalPage;                 //轮播总的数量
 @property (nonatomic, assign) NSInteger      currentPage;               //当前展示第几个的图片 默认第0个
@@ -37,12 +36,17 @@
     [self initUI];
 }
 
-
+- (void)layoutSubviews{
+    self.delegate = self.delegate;
+    [super layoutSubviews];
+    _flowLayout.itemSize = self.frame.size;
+    _collectionView.frame = self.bounds;
+}
 #pragma mark --- 布局UI
 -(void)initUI{
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = self.bounds.size;
     flowLayout.minimumLineSpacing = 0;
-    flowLayout.minimumInteritemSpacing = 0;
     _flowLayout = flowLayout;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     //UICollectionView
@@ -55,23 +59,8 @@
     _collectionView.showsHorizontalScrollIndicator = NO;
     [_collectionView registerClass:[XLCycleCell class] forCellWithReuseIdentifier:@"XLCycleCell"];
     [self addSubview:_collectionView];
-    
-    //PageControl
-    _pageControl = [[UIPageControl alloc] init];
-    _pageControl.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height - 10);
-    _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
-    _pageControl.backgroundColor = [UIColor brownColor];
-    _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
-    [self addSubview:self.pageControl];
 }
 
-
-
--(void)layoutSubviews{
-    [super layoutSubviews];
-    self.collectionView.frame = self.bounds;
-    self.flowLayout.itemSize = self.frame.size;
-}
 
 #pragma mark 添加定时器
 -(void)addTimer{
@@ -108,11 +97,10 @@
 -(void)setImageUrlArray:(NSArray *)imageUrlArray{
     _imageUrlArray = imageUrlArray;
     _totalPage = _imageUrlArray.count;
-    _pageControl.numberOfPages = _imageUrlArray.count;
     [_collectionView reloadData];
     [self removeTimer];
     [self addTimer];
-
+    
 }
 
 
@@ -134,7 +122,6 @@
     }else{
         _collectionView.scrollEnabled = YES;
     }
-    
 }
 
 #pragma mark --- UICollectionViewDataSource
@@ -147,7 +134,7 @@
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-     XLCycleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XLCycleCell" forIndexPath:indexPath];
+    XLCycleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XLCycleCell" forIndexPath:indexPath];
     if (_isText) {
         cell.cycleImageView.hidden = YES;
         cell.cycleTitleLabel.hidden = NO;
@@ -155,7 +142,7 @@
     }else{
         cell.cycleTitleLabel.hidden = YES;
         cell.cycleImageView.hidden = NO;
-       [cell.cycleImageView sd_setImageWithURL:[NSURL URLWithString:_imageUrlArray[indexPath.item]]];
+        [cell.cycleImageView sd_setImageWithURL:[NSURL URLWithString:_imageUrlArray[indexPath.item]]];
     }
     return cell;
 }
@@ -180,16 +167,14 @@
 
 #pragma mark 设置页码
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    int page;
-    if (_isText ) {
-        page = (int) (scrollView.contentOffset.y/scrollView.frame.size.height+0.5)%_totalPage;
-        
-    }else{
-        page = (int) (scrollView.contentOffset.x/scrollView.frame.size.width+0.5)%_totalPage;
+    if (!_isText) {
+        NSInteger currentIndex = (NSInteger)(scrollView.contentOffset.x/scrollView.bounds.size.width+0.5) % _totalPage;
+        if (_DidChangeCycleViewItem) {
+            _DidChangeCycleViewItem(currentIndex);
+        }
     }
-    self.pageControl.currentPage = page;
-
 }
 
 
 @end
+

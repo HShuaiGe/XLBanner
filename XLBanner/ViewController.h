@@ -10,9 +10,7 @@
 #import "XLCycleView.h"
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet XLCycleView *bannerView;
-@property (weak, nonatomic) IBOutlet XLCycleView *textView;
+
 
 @end
 
