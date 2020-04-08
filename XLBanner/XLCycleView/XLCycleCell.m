@@ -12,22 +12,26 @@
 @end
 
 @implementation XLCycleCell
--(instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame])
+    {
         [self.contentView addSubview:self.cycleImageView];
         [self.contentView addSubview:self.cycleTitleLabel];
     }
     return self;
 }
 
--(UIImageView *)cycleImageView{
+-(UIImageView *)cycleImageView
+{
     if (!_cycleImageView) {
         _cycleImageView = [[UIImageView alloc]initWithFrame:self.bounds];
     }
     return _cycleImageView;
 }
 
--(UILabel *)cycleTitleLabel{
+-(UILabel *)cycleTitleLabel
+{
     if (!_cycleTitleLabel) {
         _cycleTitleLabel = [[UILabel alloc]initWithFrame:self.bounds];
         _cycleTitleLabel.backgroundColor = [UIColor whiteColor];
@@ -35,5 +39,8 @@
     return _cycleTitleLabel;
 }
 
-
+- (void)dealloc
+{
+    NSLog(@"%s", __func__);
+}
 @end

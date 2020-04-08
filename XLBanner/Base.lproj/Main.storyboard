@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yrh-WB-pQ2">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yrh-WB-pQ2">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,11 +18,11 @@
                 <navigationController id="cAA-gv-hMi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="8Jn-Rg-I8h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bmJ-s2-I0x">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uqJ-uM-JUk"/>
+                        <segue destination="22c-Fk-5PD" kind="relationship" relationship="rootViewController" id="4uU-xn-62V"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ow-XE-ARB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -32,9 +30,38 @@
             <point key="canvasLocation" x="-1076" y="-302"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="YDH-Hh-4v9">
+            <objects>
+                <viewController id="22c-Fk-5PD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hWm-xd-KOO"/>
+                        <viewControllerLayoutGuide type="bottom" id="oPa-II-t8l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="onn-ya-lea">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnd-sa-7cB">
+                                <rect key="frame" x="98" y="245" width="125" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="跳转"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="eqj-Bv-xUH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T2a-z2-Qax"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NYG-4g-zrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-253.125" y="-332.74647887323943"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -44,7 +71,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CFYB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzC-5D-P9c">
-                                <rect key="frame" x="122.5" y="325" width="76.5" height="44"/>
+                                <rect key="frame" x="122" y="325" width="76.5" height="44"/>
                                 <fontDescription key="fontDescription" name="ChizzlerBoldOutline" family="Chizzler Bold Outline" pointSize="36"/>
                                 <color key="textColor" red="1" green="0.22008266678583999" blue="0.14324478791300033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -55,11 +82,11 @@
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ES-fg-Mk3" customClass="XLCycleView">
-                                <rect key="frame" x="0.0" y="377" width="320" height="120"/>
+                                <rect key="frame" x="0.0" y="377" width="320" height="169"/>
                                 <color key="backgroundColor" red="0.48402235243055558" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jMt-Oa-nEf">
-                                <rect key="frame" x="140" y="460" width="39" height="37"/>
+                                <rect key="frame" x="140.5" y="509" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </pageControl>
@@ -86,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-253" y="-302"/>
+            <point key="canvasLocation" x="626" y="-397"/>
         </scene>
         <!--Item-->
         <scene sceneID="65K-F7-zbi">
@@ -94,7 +121,7 @@
                 <navigationController id="HsR-5S-AOT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Lwk-iW-pOS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="deN-6C-LLd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

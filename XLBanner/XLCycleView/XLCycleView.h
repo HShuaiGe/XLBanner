@@ -10,7 +10,6 @@
 
 @class XLCycleView;
 @protocol XLCycleViewDelegate <NSObject>
-
 /**
  点击某个图片
  
@@ -23,12 +22,12 @@
 
 
 @interface XLCycleView : UIView
-@property (copy, nonatomic) void(^DidChangeCycleViewItem)(NSInteger index);
+@property (nonatomic, copy) void(^DidChangeCycleViewItem)(NSInteger index);
 @property (nonatomic, assign) NSTimeInterval timeInterval;
-@property (nonatomic, strong) NSArray *imageUrlArray; //轮播的图片数组
-@property (nonatomic, strong) NSArray *titleArray;    //文字数组
+@property (nonatomic, copy) NSArray *imageUrlArray; //轮播的图片数组
+@property (nonatomic, copy) NSArray *titleArray;    //文字数组
 @property (nonatomic, assign) BOOL isText;            //是否是文字轮播  YES：是  NO：不是
-@property (nonatomic, assign) id <XLCycleViewDelegate>delegate;
+@property (nonatomic, weak) id <XLCycleViewDelegate>delegate;
 
 @end
 

@@ -36,14 +36,16 @@
     [self initUI];
 }
 
-- (void)layoutSubviews{
+- (void)layoutSubviews
+{
     self.delegate = self.delegate;
     [super layoutSubviews];
     _flowLayout.itemSize = self.frame.size;
     _collectionView.frame = self.bounds;
 }
 #pragma mark --- 布局UI
--(void)initUI{
+-(void)initUI
+{
     _timeInterval = 3.0;
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = self.bounds.size;
@@ -64,7 +66,8 @@
 
 
 #pragma mark 添加定时器
--(void)addTimer{
+-(void)addTimer
+{
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
     _timer = timer;
     [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
@@ -155,7 +158,10 @@
 
 #pragma mark --- UICollectionViewDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.delegate respondsToSelector:@selector(cycleView:didSelectItemAtIndex:)]) {
+    
+    if ([self.delegate respondsToSelector:@selector(cycleView:didSelectItemAtIndex:)])
+    {
+        
         [self.delegate cycleView:self didSelectItemAtIndex:indexPath.item];
     }
 }
@@ -181,6 +187,17 @@
     }
 }
 
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    if (!newSuperview)
+    {
+        [self removeTimer];
+    }
+}
 
+- (void)dealloc
+{
+    NSLog(@"%s", __func__);
+}
 @end
 
