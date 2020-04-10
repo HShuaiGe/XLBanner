@@ -41,26 +41,26 @@
     
     
     
-    _textView.timeInterval = 1;
-    _textView.isText = YES;
-    _textView.titleArray = @[@"这个是跑马灯的测试，嘿嘿",@"不知道写什么文字，索性就随意写点吧",@"好好学习天天向上",@"没有什么能够阻挡我对生活的向往！！！！",@"行走于键盘之上。。。。。"];
-    _textView.delegate = self;
+//    _textView.timeInterval = 1;
+//    _textView.isText = YES;
+//    _textView.titleArray = @[@"这个是跑马灯的测试，嘿嘿",@"不知道写什么文字，索性就随意写点吧",@"好好学习天天向上",@"没有什么能够阻挡我对生活的向往！！！！",@"行走于键盘之上。。。。。"];
+//    _textView.delegate = self;
     
     
-    NSArray * fontArrays = [[UIFont familyNames] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        NSString *str1 = (NSString *)obj1;
-        NSString *str2 = (NSString *)obj2;
-        return [str1 compare:str2];
-    }];
-    for(NSString *fontfamilyname in fontArrays)
-    {
-        NSLog(@"family:'%@'",fontfamilyname);
-        for(NSString *fontName in [UIFont fontNamesForFamilyName:fontfamilyname])
-        {
-            NSLog(@"\tfont:'%@'",fontName);
-        }
-        NSLog(@"-------------");
-    }
+//    NSArray * fontArrays = [[UIFont familyNames] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+//        NSString *str1 = (NSString *)obj1;
+//        NSString *str2 = (NSString *)obj2;
+//        return [str1 compare:str2];
+//    }];
+//    for(NSString *fontfamilyname in fontArrays)
+//    {
+//        NSLog(@"family:'%@'",fontfamilyname);
+//        for(NSString *fontName in [UIFont fontNamesForFamilyName:fontfamilyname])
+//        {
+//            NSLog(@"\tfont:'%@'",fontName);
+//        }
+//        NSLog(@"-------------");
+//    }
     
 
     

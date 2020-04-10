@@ -68,7 +68,11 @@
 #pragma mark 添加定时器
 -(void)addTimer
 {
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+    __weak typeof(self) weakSelf = self;
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval repeats:YES block:^(NSTimer * _Nonnull timer)
+    {
+        [weakSelf nextPage];
+    }];
     _timer = timer;
     [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     
@@ -187,17 +191,11 @@
     }
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview
-{
-    if (!newSuperview)
-    {
-        [self removeTimer];
-    }
-}
 
 - (void)dealloc
 {
     NSLog(@"%s", __func__);
+    [self removeTimer];
 }
 @end
 
